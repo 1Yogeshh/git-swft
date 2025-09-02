@@ -24,7 +24,7 @@ Git-Quick CLI is a powerful command-line tool that simplifies GitHub repository 
 
 ## How to Use
 
-### 1. Install the Tool
+### Install the Tool
 
 To install the package globally, run the following command:
 
@@ -38,9 +38,9 @@ Verify installation:
 git-quick --version
 ```
 
-### 2. Commands & Usage 🛠️
+### Commands & Usage 🛠️
 
-### Authenticate with GitHub
+### 1️⃣ Authenticate with GitHub
 
 ```bash
 git-quick auth
@@ -48,7 +48,7 @@ git-quick auth
 Follow the instructions to generate and save your Personal Access Token.
 
 
-### Create a New Repository
+### 2️⃣ Create a New Repository
 
 ```bash
 git-quick create <repo-name> --private --description "My awesome repo"
@@ -61,7 +61,7 @@ Options:
 --description <text> → add repository description
 
 
-### Push Existing Local Folder
+### 3️⃣ Push Existing Local Folder
 
 ```bash
 git-quick push <repo-url> -b main
