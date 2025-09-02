@@ -160,29 +160,36 @@ program
         console.log(chalk.yellow("⚠️ Git already initialized"));
       }
 
-      console.log("2️⃣ Adding all files...");
+      // Ensure we are on the correct branch
+      const currentBranchSummary = await git.branchLocal();
+      if (!currentBranchSummary.all.includes(branch)) {
+        console.log(`2️⃣ Creating and switching to branch '${branch}'...`);
+        await git.checkoutLocalBranch(branch);
+      } else {
+        console.log(`2️⃣ Switching to existing branch '${branch}'...`);
+        await git.checkout(branch);
+      }
+
+      console.log("3️⃣ Adding all files...");
       await git.add(".");
 
-      console.log("3️⃣ Committing files...");
-      // Check if there are staged changes before committing
+      // Commit only if there are staged changes
       const status = await git.status();
       if (status.staged.length > 0) {
+        console.log("4️⃣ Committing files...");
         await git.commit("Initial commit");
         console.log(chalk.green("✅ Files committed"));
       } else {
         console.log(chalk.yellow("⚠️ Nothing to commit"));
       }
 
-      console.log("4️⃣ Adding remote repository...");
+      console.log("5️⃣ Adding remote repository...");
       await git.addRemote("origin", repoUrl).catch(async (err) => {
         if (err.message.includes("remote origin already exists")) {
           await git.remote(["set-url", "origin", repoUrl]);
         } else throw err;
       });
       console.log(chalk.green(`✅ Remote 'origin' set to ${repoUrl}`));
-
-      console.log(`5️⃣ Creating/switching to branch '${branch}'...`);
-      await git.checkoutLocalBranch(branch);
 
       console.log(`6️⃣ Pushing to GitHub on branch '${branch}'...`);
       await git.push(["-u", "origin", branch]);
@@ -353,6 +360,37 @@ program
         );
       }
     });
+  });
+
+program
+  .command("quick-push")
+  .description("Add, commit, and push changes on the current branch")
+  .option("-m, --message <msg>", "Commit message", "add")
+  .action(async (options) => {
+    const cwd = process.cwd();
+    const git = simpleGit(cwd);
+    const commitMsg = options.message;
+
+    try {
+      console.log("1️⃣ Adding all changes...");
+      await git.add(".");
+
+      const status = await git.status();
+      if (status.staged.length === 0) {
+        console.log(chalk.yellow("⚠️ No changes to commit."));
+        return;
+      }
+
+      console.log(`2️⃣ Committing with message: "${commitMsg}"...`);
+      await git.commit(commitMsg);
+      console.log(chalk.green("✅ Changes committed"));
+
+      console.log("3️⃣ Pushing to remote...");
+      await git.push();
+      console.log(chalk.green("✅ Changes pushed successfully!"));
+    } catch (err) {
+      console.error(chalk.red("❌ Failed to push changes"), err.message || err);
+    }
   });
 
 program.parse();
