@@ -80,8 +80,11 @@ Sets remote origin
 
 Pushes to GitHub
 
-4️⃣ Quick Add → Commit → Push
-git-quick quick-push -m "my commit message"
+### 4️⃣ Quick Add → Commit → Push
+
+```bash
+git-quick quick-push "my commit message"
+```
 
 Adds all changes
 
@@ -89,65 +92,76 @@ Commits with message (default: "add")
 
 Pushes to current branch
 
-5️⃣ Clone a Repository
+### 5️⃣ Clone a Repository
 
 By GitHub username:
 
+```bash
 git-quick clone <repo-name>
+```
 
 By direct URL:
 
+```bash
 git-quick clone-url <repo-url>
+```
 
-6️⃣ Delete a Repository
+### 6️⃣ Delete a Repository
+
+```bash
 git-quick delete <repo-name>
+```
 
 ⚠️ Warning: This is irreversible!
 
-7️⃣ Check Login Status
+### ️⃣ Check Login Status
+
+```bash
 git-quick status
+```
 
 Shows the currently logged-in GitHub username.
 
-8️⃣ Logout
+### 8️⃣ Logout
+
+```bash
 git-quick logout
+```
 
 Removes saved token and logs you out.
 
-Why Git-Quick CLI? ⚡
+### Why Git-Quick CLI? ⚡
 
-Saves time on repetitive Git tasks
+- Saves time on repetitive Git tasks
 
-Handles GitHub authentication seamlessly
+- Handles GitHub authentication seamlessly
 
-Automates branch creation and conflict handling
+- Automates branch creation and conflict handling
 
-Perfect for developers who want fast GitHub workflow
+- Perfect for developers who want fast GitHub workflow
 
-Screenshots / Demo 📸
-
-(Optional: add screenshots or animated GIFs of your CLI in action here)
-
-Contributing 🤝
+### Contributing 🤝
 
 Contributions are welcome!
 
-Fork the repository
+1. Fork the repository
 
-Create a branch
+2. Create a branch
 
+```bash
 git checkout -b feature-name
+```
 
-Commit changes
+3. Commit changes
 
+```bash
 git commit -m "Add new feature"
+```
 
-Push branch
+4. Push branch
 
+```bash
 git push origin feature-name
+```
 
-Open a Pull Request
-
-License 📄
-
-MIT License © [Your Name]
+5. Open a Pull Request
