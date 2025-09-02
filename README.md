@@ -47,7 +47,7 @@ git-quick auth
 ```
 Follow the instructions to generate and save your Personal Access Token.
 
---
+---
 
 Create a New Repository
 
@@ -61,7 +61,7 @@ Options:
 
 --description <text> → add repository description
 
---
+---
 
 Push Existing Local Folder
 
