@@ -1,4 +1,4 @@
-# Git-Swift CLI Tool🚀
+# Git-Swft( Smart Workflow For Teams ) CLI Tool🚀
 
 Git-Quick CLI is a powerful command-line tool that simplifies GitHub repository management. With just a few commands, you can authenticate, create repositories, push changes, clone repositories, delete repositories, and more — all directly from your terminal.
 
