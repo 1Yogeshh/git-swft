@@ -363,7 +363,7 @@ program
   });
 
 program
-  .command("quick-push [message]") // message as optional argument
+  .command("quick-push [message]")
   .description("Add, commit, and push changes on the current branch")
   .action(async (message = "add") => {
     const cwd = process.cwd();
