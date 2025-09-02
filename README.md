@@ -114,7 +114,7 @@ git-quick delete <repo-name>
 
 ⚠️ Warning: This is irreversible!
 
-### ️⃣ Check Login Status
+### ️7️⃣ Check Login Status
 
 ```bash
 git-quick status
