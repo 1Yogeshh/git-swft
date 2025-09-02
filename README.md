@@ -40,16 +40,15 @@ git-quick --version
 
 ### 2. Commands & Usage 🛠️
 
-Authenticate with GitHub
+### Authenticate with GitHub
 
 ```bash
 git-quick auth
 ```
 Follow the instructions to generate and save your Personal Access Token.
 
----
 
-Create a New Repository
+### Create a New Repository
 
 ```bash
 git-quick create <repo-name> --private --description "My awesome repo"
@@ -61,9 +60,8 @@ Options:
 
 --description <text> → add repository description
 
----
 
-Push Existing Local Folder
+### Push Existing Local Folder
 
 ```bash
 git-quick push <repo-url> -b main
