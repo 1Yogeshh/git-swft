@@ -363,13 +363,12 @@ program
   });
 
 program
-  .command("quick-push")
+  .command("quick-push [message]") // message as optional argument
   .description("Add, commit, and push changes on the current branch")
-  .option("-m, --message <msg>", "Commit message", "add")
-  .action(async (options) => {
+  .action(async (message = "add") => {
     const cwd = process.cwd();
     const git = simpleGit(cwd);
-    const commitMsg = options.message;
+    const commitMsg = message;
 
     try {
       console.log("1️⃣ Adding all changes...");
