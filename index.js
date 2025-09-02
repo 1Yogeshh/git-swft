@@ -164,7 +164,14 @@ program
       await git.add(".");
 
       console.log("3️⃣ Committing files...");
-      await git.commit("Initial commit");
+      // Check if there are staged changes before committing
+      const status = await git.status();
+      if (status.staged.length > 0) {
+        await git.commit("Initial commit");
+        console.log(chalk.green("✅ Files committed"));
+      } else {
+        console.log(chalk.yellow("⚠️ Nothing to commit"));
+      }
 
       console.log("4️⃣ Adding remote repository...");
       await git.addRemote("origin", repoUrl).catch(async (err) => {
@@ -174,7 +181,10 @@ program
       });
       console.log(chalk.green(`✅ Remote 'origin' set to ${repoUrl}`));
 
-      console.log(`5️⃣ Pushing to GitHub on branch ${branch}...`);
+      console.log(`5️⃣ Creating/switching to branch '${branch}'...`);
+      await git.checkoutLocalBranch(branch);
+
+      console.log(`6️⃣ Pushing to GitHub on branch '${branch}'...`);
       await git.push(["-u", "origin", branch]);
       console.log(chalk.green(`✅ Pushed to ${branch} branch successfully!`));
     } catch (err) {
