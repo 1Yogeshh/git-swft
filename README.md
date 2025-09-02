@@ -1,9 +1,6 @@
 Git-Quick CLI 🚀
 
-
-
-
-Git-Quick CLI is a powerful command-line tool that simplifies GitHub repository management. With just a few commands, you can authenticate, create repos, push changes, clone repositories, delete repos, and more — all directly from your terminal.
+Git-Quick CLI is a powerful command-line tool that simplifies GitHub repository management. With just a few commands, you can authenticate, create repositories, push changes, clone repositories, delete repositories, and more — all directly from your terminal.
 
 Features ✨
 
@@ -47,21 +44,21 @@ git-quick create <repo-name> --private --description "My awesome repo"
 
 Options:
 
---private → make repo private
+--private → make repository private
 
---description <text> → add repo description
+--description <text> → add repository description
 
 3️⃣ Push Existing Local Folder
 git-quick push <repo-url> -b main
 
 
-Automatically:
+Automatically performs:
 
 Initializes Git if not done already
 
 Adds all files
 
-Commits with “Initial commit”
+Commits with "Initial commit"
 
 Creates/switches to branch (main by default)
 
@@ -81,7 +78,7 @@ Pushes to current branch
 
 5️⃣ Clone a Repository
 
-By your GitHub account name:
+By GitHub username:
 
 git-quick clone <repo-name>
 
@@ -118,19 +115,30 @@ Automates branch creation and conflict handling
 
 Perfect for developers who want fast GitHub workflow
 
-Screenshots / Demo (Optional) 📸
+Screenshots / Demo 📸
+
+(Optional: add screenshots or animated GIFs of your CLI in action here)
 
 Contributing 🤝
 
 Contributions are welcome!
 
-Fork the repo
+Fork the repository
 
-Create a branch (git checkout -b feature-name)
+Create a branch
 
-Commit changes (git commit -m "Add new feature")
+git checkout -b feature-name
 
-Push branch (git push origin feature-name)
+
+Commit changes
+
+git commit -m "Add new feature"
+
+
+Push branch
+
+git push origin feature-name
+
 
 Open a Pull Request
 
