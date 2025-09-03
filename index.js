@@ -16,7 +16,7 @@ program
   .description("A custom CLI to manage GitHub repos from terminal")
   .version("1.0.0");
 
-// 🔹 Auth Command
+// Auth Command
 program
   .command("auth")
   .description("Authenticate with GitHub using a personal access token")
