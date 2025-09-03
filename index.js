@@ -56,6 +56,7 @@ program
     await saveToken(token);
   });
 
+// Logout Command
 program
   .command("logout")
   .description("Logout from GitHub (remove saved token)")
@@ -63,6 +64,7 @@ program
     Logout();
   });
 
+// Check status command
 program
   .command("status")
   .description("Check if user is logged in")
@@ -140,6 +142,89 @@ program
     }
   });
 
+// Create and push command
+program
+  .command("create-push <name>")
+  .option("-p, --private", "Make repository private")
+  .option("-d, --description <description>", "Repository description")
+  .description(
+    "Create a new GitHub repository and push current folder automatically"
+  )
+  .action(async (name, options) => {
+    const token = getToken();
+
+    if (!token) {
+      console.log(
+        chalk.red("❌ You must be logged in! Run `git-create-cli auth` first.")
+      );
+      return;
+    }
+
+    try {
+      // 1️⃣ Create Repo
+      const res = await fetch("https://api.github.com/user/repos", {
+        method: "POST",
+        headers: {
+          Authorization: `token ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          private: !!options.private,
+          description: options.description || "",
+        }),
+      });
+
+      if (res.status === 201) {
+        const data = await res.json();
+        console.log(chalk.green(`✅ Repo created: ${data.html_url}`));
+
+        // 2️⃣ Automatically push current folder to the new repo
+        const git = simpleGit(process.cwd());
+        const branch = "main"; // default branch
+
+        // Init git if not exists
+        if (!fs.existsSync(path.join(process.cwd(), ".git"))) {
+          await git.init();
+          console.log(chalk.green("✅ Git initialized"));
+        }
+
+        // Checkout branch
+        const currentBranchSummary = await git.branchLocal();
+        if (!currentBranchSummary.all.includes(branch)) {
+          await git.checkoutLocalBranch(branch);
+        } else {
+          await git.checkout(branch);
+        }
+
+        // Add, commit, and push
+        await git.add(".");
+        const status = await git.status();
+        if (status.staged.length > 0) {
+          await git.commit("Initial commit");
+        }
+
+        await git.addRemote("origin", data.clone_url).catch(async (err) => {
+          if (err.message.includes("remote origin already exists")) {
+            await git.remote(["set-url", "origin", data.clone_url]);
+          } else throw err;
+        });
+
+        await git.push(["-u", "origin", branch]);
+        console.log(chalk.green(`✅ Pushed to ${branch} successfully!`));
+      } else {
+        const errData = await res.json();
+        console.log(
+          chalk.red("❌ Failed to create repo:"),
+          errData.message || res.statusText
+        );
+      }
+    } catch (err) {
+      console.error(chalk.red("⚠️ Error creating repo"), err);
+    }
+  });
+
+// Initial Push Command
 program
   .command("push <repoUrl>")
   .description(
@@ -247,6 +332,7 @@ program
     }
   });
 
+// List all repos
 program
   .command("list")
   .description("List all your GitHub repositories")
@@ -286,12 +372,13 @@ program
     }
   });
 
+// Clone a repo by name
 program
   .command("clone <repoName>")
   .description("Clone one of your GitHub repositories")
   .option("-d, --dir <directory>", "Directory to clone into", ".")
   .action(async (repoName, options) => {
-    const token = await getToken(); // keytar se token
+    const token = await getToken();
     if (!token) {
       console.log(
         chalk.red("❌ You must be logged in! Run `git-create-cli auth` first.")
@@ -323,12 +410,13 @@ program
     }
   });
 
+// Clone a repo by URL
 program
   .command("clone-url <repoUrl>")
   .description("Clone a repo by URL into current directory and run npm install")
   .action((repoUrl) => {
-    const cwd = process.cwd(); // current working directory
-    const repoName = path.basename(repoUrl, ".git"); // folder name
+    const cwd = process.cwd();
+    const repoName = path.basename(repoUrl, ".git");
 
     console.log(chalk.cyan(`📥 Cloning ${repoUrl} into ${cwd}...`));
 
@@ -362,6 +450,7 @@ program
     });
   });
 
+// Quick push command
 program
   .command("quick-push [message]")
   .description("Add, commit, and push changes on the current branch")
