@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "git-create-cli": "./index.js"
+    "swft": "./index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

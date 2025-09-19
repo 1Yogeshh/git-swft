@@ -226,7 +226,7 @@ program
 
 // Initial Push Command
 program
-  .command("push <repoUrl>")
+  .command("init-push <repoUrl>")
   .description(
     "Initialize current folder, link to an existing GitHub repo, and push"
   )
@@ -452,7 +452,7 @@ program
 
 // Quick push command
 program
-  .command("quick-push [message]")
+  .command("push [message]")
   .description("Add, commit, and push changes on the current branch")
   .action(async (message = "add") => {
     const cwd = process.cwd();

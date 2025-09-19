@@ -10,7 +10,7 @@ Git-Quick CLI is a powerful command-line tool that simplifies GitHub repository 
 
 🚀 Push existing local folders to GitHub easily
 
-⚡ Quick add → commit → push workflow (quick-push)
+⚡ Quick add → commit → push workflswft-push)
 
 📥 Clone repositories by name or URL
 
@@ -29,13 +29,13 @@ Git-Quick CLI is a powerful command-line tool that simplifies GitHub repository 
 To install the package globally, run the following command:
 
 ```bash
-npm install -g git-quick-cli
+npm install -g swft
 ```
 
 Verify installation:
 
 ```bash
-git-quick --version
+swft --version
 ```
 
 ### Commands & Usage 🛠️
@@ -43,7 +43,7 @@ git-quick --version
 ### 1️⃣ Authenticate with GitHub
 
 ```bash
-git-quick auth
+swft auth
 ```
 
 Follow the instructions to generate and save your Personal Access Token.
@@ -51,7 +51,7 @@ Follow the instructions to generate and save your Personal Access Token.
 ### 2️⃣ Create a New Repository
 
 ```bash
-git-quick create <repo-name> --private --description "My awesome repo"
+swft create <repo-name> --private --description "My awesome repo"
 ```
 
 Options:
@@ -63,7 +63,7 @@ Options:
 ### 3️⃣ Push Existing Local Folder
 
 ```bash
-git-quick push <repo-url> -b main
+swft push <repo-url> -b main
 ```
 
 Automatically performs:
@@ -83,7 +83,7 @@ Pushes to GitHub
 ### 4️⃣ Quick Add → Commit → Push
 
 ```bash
-git-quick quick-push "my commit message"
+swft-push "my commit message"
 ```
 
 Adds all changes
@@ -97,19 +97,19 @@ Pushes to current branch
 By GitHub username:
 
 ```bash
-git-quick clone <repo-name>
+swft clone <repo-name>
 ```
 
 By direct URL:
 
 ```bash
-git-quick clone-url <repo-url>
+swft clone-url <repo-url>
 ```
 
 ### 6️⃣ Delete a Repository
 
 ```bash
-git-quick delete <repo-name>
+swft delete <repo-name>
 ```
 
 ⚠️ Warning: This is irreversible!
@@ -117,7 +117,7 @@ git-quick delete <repo-name>
 ### ️7️⃣ Check Login Status
 
 ```bash
-git-quick status
+swft status
 ```
 
 Shows the currently logged-in GitHub username.
@@ -125,7 +125,7 @@ Shows the currently logged-in GitHub username.
 ### 8️⃣ Logout
 
 ```bash
-git-quick logout
+swft logout
 ```
 
 Removes saved token and logs you out.
