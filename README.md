@@ -29,7 +29,7 @@ Git-Swft is a powerful command-line tool that simplifies GitHub repository manag
 To install the package globally, run the following command:
 
 ```bash
-npm i swft
+npm install -g swft
 ```
 
 Verify installation:
