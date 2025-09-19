@@ -60,10 +60,22 @@ Options:
 
 --description <text> → add repository description
 
+### 2️⃣ Create and initial new Repository
+
+```bash
+swft create-push <repo-name> --private --description "My awesome repo"
+```
+
+Options:
+
+--private → make repository private
+
+--description <text> → add repository description
+
 ### 3️⃣ Push Existing Local Folder
 
 ```bash
-swft push <repo-url> -b main
+swft init-push <repo-url> -b main
 ```
 
 Automatically performs:
@@ -83,7 +95,7 @@ Pushes to GitHub
 ### 4️⃣ Quick Add → Commit → Push
 
 ```bash
-swft-push "my commit message"
+swft push "my commit message"
 ```
 
 Adds all changes
