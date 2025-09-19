@@ -8,13 +8,14 @@ const { saveToken, getToken, Logout } = require("./utils/config");
 const simpleGit = require("simple-git");
 const path = require("path");
 const { exec } = require("child_process");
+const pkg = require("./package.json");
 
 const program = new Command();
 
 program
-  .name("git-create-cli")
+  .name("swft")
   .description("A custom CLI to manage GitHub repos from terminal")
-  .version("1.0.0");
+  .version(pkg.version);
 
 // Auth Command
 program
