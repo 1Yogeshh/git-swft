@@ -10,7 +10,7 @@ Git-Quick CLI is a powerful command-line tool that simplifies GitHub repository 
 
 🚀 Push existing local folders to GitHub easily
 
-⚡ Quick add → commit → push workflswft-push)
+⚡ Quick add → commit → push 
 
 📥 Clone repositories by name or URL
 
@@ -29,7 +29,7 @@ Git-Quick CLI is a powerful command-line tool that simplifies GitHub repository 
 To install the package globally, run the following command:
 
 ```bash
-npm install -g swft
+npm i swft
 ```
 
 Verify installation:
@@ -47,6 +47,18 @@ swft auth
 ```
 
 Follow the instructions to generate and save your Personal Access Token.
+🔑 GitHub Authentication Guide
+
+1. Open: https://github.com/settings/tokens
+2. Click on 'Generate new token (classic)'
+3. Give it a name (e.g. 'git-create-cli').
+4. Select these required scopes:
+
+   - repo (Full control of private and public repositories)
+   - delete_repo (To allow deleting repositories)
+   - read:user (To read your GitHub profile)
+
+⚠️ Copy the token and keep it safe, you won’t see it again!
 
 ### 2️⃣ Create a New Repository
 
