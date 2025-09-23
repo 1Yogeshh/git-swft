@@ -10,7 +10,7 @@ Git-Swft is a powerful command-line tool that simplifies GitHub repository manag
 
 🚀 Push existing local folders to GitHub easily
 
-⚡ Quick add → commit → push 
+⚡ Quick add → commit → push
 
 📥 Clone repositories by name or URL
 
@@ -62,6 +62,8 @@ Follow the instructions to generate and save your Personal Access Token.
 
 ### 2️⃣ Create a New Repository
 
+Create a New Repository this is to create a new repo remotely this doesn’t create repo locally
+
 ```bash
 swft create <repo-name> --private --description "My awesome repo"
 ```
@@ -74,6 +76,8 @@ Options:
 
 ### 2️⃣ Create and initial new Repository
 
+Create and initial new Repository create a new repo locally and push it to remote
+
 ```bash
 swft create-push <repo-name> --private --description "My awesome repo"
 ```
@@ -85,6 +89,8 @@ Options:
 --description <text> → add repository description
 
 ### 3️⃣ Push Existing Local Folder
+
+Push Existing Local Folder pushes the local folder to remote github url
 
 ```bash
 swft init-push <repo-url> -b main
@@ -154,7 +160,7 @@ swft logout
 
 Removes saved token and logs you out.
 
-### Why Git-Quick CLI? ⚡
+### Why Git-Swft CLI? ⚡
 
 - Saves time on repetitive Git tasks
 
@@ -163,29 +169,3 @@ Removes saved token and logs you out.
 - Automates branch creation and conflict handling
 
 - Perfect for developers who want fast GitHub workflow
-
-### Contributing 🤝
-
-Contributions are welcome!
-
-1. Fork the repository
-
-2. Create a branch
-
-```bash
-git checkout -b feature-name
-```
-
-3. Commit changes
-
-```bash
-git commit -m "Add new feature"
-```
-
-4. Push branch
-
-```bash
-git push origin feature-name
-```
-
-5. Open a Pull Request
