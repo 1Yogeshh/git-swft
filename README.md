@@ -1,6 +1,9 @@
-# Git-Swft( Smart Workflow For Teams ) CLI Tool🚀
+# Git-Swft 🚀  
+*Smart Workflow For Teams — Simplify GitHub repository management from your terminal*
 
-Git-Swft is a powerful command-line tool that simplifies GitHub repository management. With just a few commands, you can authenticate, create repositories, push changes, clone repositories, delete repositories, and more — all directly from your terminal.
+[![npm version](https://img.shields.io/npm/v/swft?color=blue)](https://www.npmjs.com/package/swft)
+[![npm downloads](https://img.shields.io/npm/dt/swft?color=green)](https://www.npmjs.com/package/swft)
+[![License](https://img.shields.io/badge/license-MIT-yellow)](LICENSE)
 
 ## Features ✨
 
@@ -37,8 +40,23 @@ Verify installation:
 ```bash
 swft --version
 ```
+### Commands
 
-### Commands & Usage 🛠️
+| Command                   | Description                                            |
+| ------------------------- | ------------------------------------------------------ |
+| `swft auth`               | Authenticate with GitHub using a personal access token |
+| `swft create <repo>`      | Create a new GitHub repository (remote only)           |
+| `swft create-push <repo>` | Create repo locally + push to GitHub                   |
+| `swft init-push <url>`    | Push an existing local folder to GitHub                |
+| `swft push "msg"`         | Quick add → commit → push                              |
+| `swft clone <repo>`       | Clone by repo name                                     |
+| `swft clone-url <url>`    | Clone by URL                                           |
+| `swft delete <repo>`      | Delete repository (⚠ irreversible)                     |
+| `swft status`             | Check login status                                     |
+| `swft logout`             | Logout and remove token                                |
+
+
+### 🚀 Usage Guide
 
 ### 1️⃣ Authenticate with GitHub
 
@@ -60,9 +78,7 @@ Follow the instructions to generate and save your Personal Access Token.
 
 ⚠️ Copy the token and keep it safe, you won’t see it again!
 
-### 2️⃣ Create a New Repository
-
-Create a New Repository this is to create a new repo remotely this doesn’t create repo locally
+### 2️⃣ Create a New Repository (Remote Only)
 
 ```bash
 swft create <repo-name> --private --description "My awesome repo"
@@ -74,9 +90,7 @@ Options:
 
 --description <text> → add repository description
 
-### 2️⃣ Create and initial new Repository
-
-Create and initial new Repository create a new repo locally and push it to remote
+### 3️⃣ Create & Push a Repository (Local + Remote)
 
 ```bash
 swft create-push <repo-name> --private --description "My awesome repo"
@@ -88,7 +102,7 @@ Options:
 
 --description <text> → add repository description
 
-### 3️⃣ Push Existing Local Folder
+### 4️⃣ Push Existing Local Folder
 
 Push Existing Local Folder pushes the local folder to remote github url
 
@@ -110,7 +124,7 @@ Sets remote origin
 
 Pushes to GitHub
 
-### 4️⃣ Quick Add → Commit → Push
+### 5️⃣ Quick Add → Commit → Push
 
 ```bash
 swft push "my commit message"
@@ -122,7 +136,7 @@ Commits with message (default: "add")
 
 Pushes to current branch
 
-### 5️⃣ Clone a Repository
+### 6️⃣ Clone a Repository
 
 By GitHub username:
 
@@ -136,7 +150,7 @@ By direct URL:
 swft clone-url <repo-url>
 ```
 
-### 6️⃣ Delete a Repository
+### 7️⃣ Delete a Repository
 
 ```bash
 swft delete <repo-name>
@@ -144,18 +158,12 @@ swft delete <repo-name>
 
 ⚠️ Warning: This is irreversible!
 
-### ️7️⃣ Check Login Status
+### 8️⃣ Status & Logout
 
 ```bash
-swft status
-```
+swft status  # Shows logged-in GitHub username
 
-Shows the currently logged-in GitHub username.
-
-### 8️⃣ Logout
-
-```bash
-swft logout
+swft logout # Removes saved token and logs you out
 ```
 
 Removes saved token and logs you out.
@@ -169,3 +177,20 @@ Removes saved token and logs you out.
 - Automates branch creation and conflict handling
 
 - Perfect for developers who want fast GitHub workflow
+
+### Example Workflow
+
+```bash
+# Authenticate once
+swft auth
+
+# Create and push a new repo
+swft create-push my-app --private --description "Cool app repo"
+
+# Push updates
+swft push "added login feature"
+
+# Clone another repo
+swft clone-url https://github.com/user/another-repo.git
+```
+
