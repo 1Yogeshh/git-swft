@@ -64,19 +64,23 @@ swft --version
 swft auth
 ```
 
-Follow the instructions to generate and save your Personal Access Token.
-🔑 GitHub Authentication Guide
+Steps:
 
 1. Open: https://github.com/settings/tokens
-2. Click on 'Generate new token (classic)'
-3. Give it a name (e.g. 'git-create-cli').
-4. Select these required scopes:
 
-   - repo (Full control of private and public repositories)
-   - delete_repo (To allow deleting repositories)
-   - read:user (To read your GitHub profile)
+2. Click "Generate new token (classic)"
 
-⚠️ Copy the token and keep it safe, you won’t see it again!
+3. Give it a name (e.g. git-create-cli)
+
+4. Select scopes:
+
+   repo → full control of private and public repositories
+
+   delete_repo → to allow deleting repositories
+
+   read:user → to read your GitHub profile
+
+5. Copy the token (⚠️ you won’t see it again).
 
 ### 2️⃣ Create a New Repository (Remote Only)
 
@@ -104,15 +108,13 @@ Options:
 
 ### 4️⃣ Push Existing Local Folder
 
-Push Existing Local Folder pushes the local folder to remote github url
-
 ```bash
 swft init-push <repo-url> -b main
 ```
 
 Automatically performs:
 
-Initializes Git if not done already
+Initializes Git (if not already)
 
 Adds all files
 
