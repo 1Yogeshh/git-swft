@@ -27,7 +27,7 @@ program
       "1. Open: " + chalk.yellow("https://github.com/settings/tokens")
     );
     console.log("2. Click on " + chalk.cyan("'Generate new token (classic)'"));
-    console.log("3. Give it a name (e.g. 'git-create-cli').");
+    console.log("3. Give it a name (e.g. 'swft').");
     console.log("4. Select these required scopes:\n");
     console.log(
       "   - " +
@@ -73,7 +73,7 @@ program
     const token = getToken();
     if (!token) {
       console.log(
-        chalk.red("❌ You are not logged in. Run `git-create-cli auth`.")
+        chalk.red("❌ You are not logged in. Run `swft auth`.")
       );
       return;
     }
@@ -107,7 +107,7 @@ program
 
     if (!token) {
       console.log(
-        chalk.red("❌ You must be logged in! Run `git-create-cli auth` first.")
+        chalk.red("❌ You must be logged in! Run `swft auth` first.")
       );
       return;
     }
@@ -155,7 +155,7 @@ program
 
     if (!token) {
       console.log(
-        chalk.red("❌ You must be logged in! Run `git-create-cli auth` first.")
+        chalk.red("❌ You must be logged in! Run `swft auth` first.")
       );
       return;
     }
@@ -295,7 +295,7 @@ program
     const token = getToken();
     if (!token) {
       console.log(
-        chalk.red("❌ You are not logged in. Run `git-create-cli auth`.")
+        chalk.red("❌ You are not logged in. Run `swft auth`.")
       );
       return;
     }
@@ -340,7 +340,7 @@ program
     const token = getToken();
     if (!token) {
       console.log(
-        chalk.red("❌ You are not logged in. Run `git-create-cli auth`.")
+        chalk.red("❌ You are not logged in. Run `swft auth`.")
       );
       return;
     }
@@ -381,7 +381,7 @@ program
     const token = await getToken();
     if (!token) {
       console.log(
-        chalk.red("❌ You must be logged in! Run `git-create-cli auth` first.")
+        chalk.red("❌ You must be logged in! Run `swft auth` first.")
       );
       return;
     }
