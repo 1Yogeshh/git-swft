@@ -23,9 +23,5 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/1Yogeshh/git-swft"
   }
 }
