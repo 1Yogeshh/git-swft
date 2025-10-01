@@ -11,6 +11,8 @@
 
 📦 Create new repositories on GitHub instantly
 
+🚀 Create & Push a repository in one command
+
 🚀 Push existing local folders to GitHub easily
 
 ⚡ Quick add → commit → push
@@ -20,8 +22,6 @@
 🗑️ Delete repositories safely
 
 🔒 Supports private/public repos
-
-🔄 Automatically handles branches (main / master)
 
 ---
 
