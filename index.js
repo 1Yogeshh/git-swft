@@ -71,7 +71,6 @@ program
   .description("Check if user is logged in")
   .action(async () => {
     const token = getToken();
-    // console.log("DEBUG TOKEN:", token);
     if (!token) {
       console.log(
         chalk.red("❌ You are not logged in. Run `git-create-cli auth`.")
