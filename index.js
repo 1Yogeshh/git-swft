@@ -72,9 +72,7 @@ program
   .action(async () => {
     const token = getToken();
     if (!token) {
-      console.log(
-        chalk.red("❌ You are not logged in. Run `swft auth`.")
-      );
+      console.log(chalk.red("❌ You are not logged in. Run `swft auth`."));
       return;
     }
 
@@ -294,9 +292,7 @@ program
   .action(async (name) => {
     const token = getToken();
     if (!token) {
-      console.log(
-        chalk.red("❌ You are not logged in. Run `swft auth`.")
-      );
+      console.log(chalk.red("❌ You are not logged in. Run `swft auth`."));
       return;
     }
 
@@ -339,9 +335,7 @@ program
   .action(async () => {
     const token = getToken();
     if (!token) {
-      console.log(
-        chalk.red("❌ You are not logged in. Run `swft auth`.")
-      );
+      console.log(chalk.red("❌ You are not logged in. Run `swft auth`."));
       return;
     }
 
