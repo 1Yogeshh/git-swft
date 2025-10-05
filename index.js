@@ -140,7 +140,7 @@ program
     }
   });
 
-// Create and push command
+// Repo Create and push command
 program
   .command("create-push <name>")
   .option("-p, --private", "Make repository private")
