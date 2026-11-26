@@ -12,6 +12,7 @@ const pkg = require("./package.json");
 
 const program = new Command();
 
+
 program
   .name("swft")
   .description("A custom CLI to manage GitHub repos from terminal")
